@@ -1,0 +1,16 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="LanguageDetectionInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="Distancias3.calcular_distancias" />
+          <option value="CiudadesEnYucatan.window" />
+          <option value="CiudadesEnYucatan.mostrar_mapa_button" />
+          <option value="CiudadesEnYucatan.calcular_distancias" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
