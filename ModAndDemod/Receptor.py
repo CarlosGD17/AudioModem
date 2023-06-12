@@ -25,10 +25,12 @@ def print_sound(indata, outdata, frames, time, status):
         volume6.append(volume)
     if volume == 9:
         volume9.append(volume)
+    input("--")
 
 
 
 stream = sd.Stream(callback=print_sound, samplerate=44100)
+input("-")
 stream.start()
 
 # Wait for user input to stop the program
