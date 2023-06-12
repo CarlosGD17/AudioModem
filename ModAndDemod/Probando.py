@@ -1,17 +1,16 @@
 import Transmisor
 
 p = Transmisor.Transmision()
-"""
-d = p.codificar("adio", 0)
+
+d = p.codificar("hola", 0)
 print(len(d))
 p.modular(d)
-
+"""
 with open("D:\Carlos\Desktop\goku_idle.jpg", "rb") as f:
     print("read:", f.read())
     archivo = p.codificar(f, 1)
     print(len(archivo))
     p.modular(archivo)
-"""
 
 
 def get_binary_representation(file_path):
@@ -41,3 +40,4 @@ def save_binary_as_file(binary_string, output_file_path):
 
 output = 'D:\Carlos\Desktop\hola2.txt'
 save_binary_as_file(binary_representation, output)
+"""
