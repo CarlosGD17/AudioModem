@@ -7,5 +7,5 @@ def print_sound(indata, outdata, frames, time, status):
     print("|" * int(volume_norm))
 
 
-with sd.Stream(callback=print_sound):
+with sd.Stream(callback=print_sound, samplerate=44100):
     sd.sleep(10000)
