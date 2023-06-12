@@ -1,11 +1,18 @@
+import numpy as np
+
 import Transmisor
 
 p = Transmisor.Transmision()
 
+while True:
+    volume = int(input("Digite el volumen (1, 3, 6, 9): "))
+    p.calibrar(volume)
+
+"""
 d = p.codificar("hola", 0)
 print(len(d))
 p.modular(d)
-"""
+
 with open("D:\Carlos\Desktop\goku_idle.jpg", "rb") as f:
     print("read:", f.read())
     archivo = p.codificar(f, 1)

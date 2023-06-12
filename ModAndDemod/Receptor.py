@@ -12,5 +12,12 @@ def print_sound(indata, outdata, frames, time, status):
     print("|" * int(volume_norm))
 
 
-with sd.Stream(callback=print_sound, samplerate=44100):
-    sd.sleep(10000)
+stream = sd.Stream(callback=print_sound, samplerate=44100)
+stream.start()
+
+# Wait for user input to stop the program
+input("Press Enter to stop...")
+
+# Stop the audio stream and exit the program
+stream.stop()
+

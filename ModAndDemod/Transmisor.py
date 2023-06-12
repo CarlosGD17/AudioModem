@@ -89,3 +89,13 @@ class Transmision:
                     ba.append(bit)
         print(ba)
         return ba
+
+    def calibrar(self, volume):
+        if volume == 1:
+            self.b1.transmit()
+        if volume == 3:
+            self.b2.transmit()
+        if volume == 6:
+            self.b3.transmit()
+        if volume == 9:
+            self.b4.transmit()
