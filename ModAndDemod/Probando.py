@@ -2,13 +2,30 @@ import numpy as np
 
 import Transmisor
 
+
 p = Transmisor.Transmision()
 
+d = [0, 0, 0, 0, 0, 0, 0, 0]
+print(len(d))
+p.modular(d)
+
+d = [0, 1, 0, 1, 0, 1, 0, 1]
+print(len(d))
+p.modular(d)
+
+d = [1, 0, 1, 0, 1, 0, 1, 0]
+print(len(d))
+p.modular(d)
+
+d = [1, 1, 1, 1, 1, 1, 1, 1]
+print(len(d))
+p.modular(d)
+
+"""
 while True:
     volume = int(input("Digite el volumen (1, 3, 6, 9): "))
     p.calibrar(volume)
 
-"""
 d = p.codificar("hola", 0)
 print(len(d))
 p.modular(d)
