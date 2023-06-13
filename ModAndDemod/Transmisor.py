@@ -5,7 +5,7 @@ import bitarray
 
 
 class Baudio:
-    def __init__(self, frequency=1117.0, volume=0.5, sampling_rate=44100, duration=0.3):
+    def __init__(self, frequency=1117.0, volume=0.5, sampling_rate=44100, duration=0.01):
         # Hz, must be integer
         self.sampling_rate = sampling_rate
         # in senconds
@@ -17,7 +17,6 @@ class Baudio:
 
     def transmit(self):
         p = pyaudio.PyAudio()
-        # hace la magia
         # x = [muestreo * duracion]
         # sin(2*pi*x*frecuencia/muestreo)
         samples = (np.sin(
@@ -44,7 +43,6 @@ class Baudio:
 
         stream.stop_stream()
         stream.close()
-
         p.terminate()
 
 
@@ -52,14 +50,10 @@ class Transmision:
     def __init__(self):
         # 4 baudios
         # bit/segundo = log_2_(4) = 2
-        #self.b1 = Baudio(frequency=1117.0)
-        self.b1 = Baudio(volume=0.1)
-        #self.b2 = Baudio(frequency=2117.0)
-        self.b2 = Baudio(volume=0.3)
-        #self.b3 = Baudio(frequency=3117.0)
-        self.b3 = Baudio(volume=0.6)
-        #self.b4 = Baudio(frequency=4117.0)
-        self.b4 = Baudio(volume=0.9)
+        self.b1 = Baudio(frequency=1117.0)
+        self.b2 = Baudio(frequency=2117.0)
+        self.b3 = Baudio(frequency=3117.0)
+        self.b4 = Baudio(frequency=4117.0)
 
     def modular(self, bits):
         print(f"transmitiendo: [{bits}]")
@@ -75,20 +69,20 @@ class Transmision:
             elif data[i] == 1 and data[i+1] == 1:
                 self.b4.transmit()
 
-    def codificar(self, msg, type):
+    def codificar(self, msg, nombre):
         # mensaje
-        if type == 0:
-            ba = bitarray.bitarray()
-            ba.frombytes(msg.encode('utf-8'))
+        if nombre == 0:
+            codificado = bitarray.bitarray()
+            codificado.frombytes(msg.encode('utf-8'))
         # archivo
-        if type == 1:
-            ba = []
+        else:
+            codificado = []
             for i in msg:
                 for j in range(7, -1, -1):
                     bit = (i >> i) & 1
-                    ba.append(bit)
-        print(ba)
-        return ba
+                    codificado.append(bit)
+        print(codificado)
+        return codificado
 
     def calibrar(self, volume):
         if volume == 1:
@@ -99,3 +93,12 @@ class Transmision:
             self.b3.transmit()
         if volume == 9:
             self.b4.transmit()
+
+    def contruyeTrama(self, ):
+        trama = []
+        # inicio de la trama
+        trama.append(1)
+        trama.append(1)
+
+        # final de la trama
+        trama.append(1)

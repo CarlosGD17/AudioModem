@@ -1,10 +1,11 @@
 import numpy as np
 
 import Transmisor
+from matplotlib import pyplot as plt
 
 
 p = Transmisor.Transmision()
-
+"""
 d = [0, 0, 0, 0, 0, 0, 0, 0]
 print(len(d))
 p.modular(d)
@@ -21,18 +22,36 @@ d = [1, 1, 1, 1, 1, 1, 1, 1]
 print(len(d))
 p.modular(d)
 
-"""
+
 while True:
     volume = int(input("Digite el volumen (1, 3, 6, 9): "))
     p.calibrar(volume)
+"""
 
-d = p.codificar("hola", 0)
+d = p.codificar("adios", 0)
 print(len(d))
-p.modular(d)
 
+SAMPLE_RATE = 44100  # Hertz
+DURATION = 5  # Seconds
+
+def generate_sine_wave(freq, sample_rate, duration):
+    x = np.linspace(0, duration, sample_rate * duration, endpoint=False)
+    frequencies = x * freq
+    # 2pi because np.sin takes radians
+    y = np.sin((2 * np.pi) * frequencies)
+    return x, y
+
+# Generate a 2 hertz sine wave that lasts for 5 seconds
+x, y = generate_sine_wave(2, SAMPLE_RATE, DURATION)
+plt.plot(x, y)
+plt.show()
+
+
+p.modular(d)
+"""
 with open("D:\Carlos\Desktop\goku_idle.jpg", "rb") as f:
     print("read:", f.read())
-    archivo = p.codificar(f, 1)
+    archivo = p.codificar(f, extension=1)
     print(len(archivo))
     p.modular(archivo)
 
