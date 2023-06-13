@@ -5,7 +5,7 @@ import bitarray
 
 
 class Baudio:
-    def __init__(self, frequency=440.0, volume=0.5, sampling_rate=44100, duration=0.3):
+    def __init__(self, frequency=1117.0, volume=0.5, sampling_rate=44100, duration=0.3):
         # Hz, must be integer
         self.sampling_rate = sampling_rate
         # in senconds

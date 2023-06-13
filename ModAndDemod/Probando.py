@@ -4,6 +4,7 @@ import Transmisor
 
 
 p = Transmisor.Transmision()
+p.codificar(msg)
 
 d = [0, 0, 0, 0, 0, 0, 0, 0]
 print(len(d))
