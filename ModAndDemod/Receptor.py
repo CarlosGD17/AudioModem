@@ -1,8 +1,11 @@
 import sounddevice as sd
 import numpy as np
 import time as t
+import matplotlib.pyplot as plt
 
 recibido = []
+data = []
+
 
 def print_sound(indata, outdata, frames, time, status):
     # calcula la longitud del vector
@@ -10,8 +13,9 @@ def print_sound(indata, outdata, frames, time, status):
 
     volume_norm = volume_norm * 10
     print(volume_norm)
+    data.append(volume_norm)
 
-    #print("|" * int(volume_norm))
+    # print("|" * int(volume_norm))
     if 38 < volume_norm < 45:
         print(f"\n\n---Recibido: 1---\n\n")
         recibido.append(1)
@@ -20,7 +24,6 @@ def print_sound(indata, outdata, frames, time, status):
         print(f"\n\n---Recibido: 0---\n\n")
         recibido.append(0)
         #t.sleep(0.1)
-
 
 
 stream = sd.Stream(callback=print_sound, samplerate=44100)
@@ -33,3 +36,5 @@ input("Press Enter to stop...\n")
 stream.stop()
 
 print(f"\n---Recibido: {recibido}---")
+plt.plot(data)
+plt.show()
