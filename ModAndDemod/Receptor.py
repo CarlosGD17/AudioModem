@@ -14,10 +14,10 @@ def print_sound(indata, outdata, frames, time, status):
     print("|" * int(volume_norm))
     if 38 < volume_norm < 45:
         recibido.append(1)
-        t.sleep(0.1)
+        t.sleep(0.2)
     if 15 < volume_norm < 20:
         recibido.append(0)
-        t.sleep(0.1)
+        t.sleep(0.2)
 
 
 
