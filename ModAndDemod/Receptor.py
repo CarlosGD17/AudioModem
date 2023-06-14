@@ -51,7 +51,7 @@ print(f"Recibido: {word}")
 
 # Encontrar los puntos mínimos
 
-indices = [index for index, item in enumerate(recibido) if item < 10]
+indices = [index for index, item in enumerate(data) if item < 10]
 print(indices)
 
 
