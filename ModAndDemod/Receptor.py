@@ -14,7 +14,7 @@ def print_sound(indata, outdata, frames, time, status):
     volume_norm = volume_norm * 10
     print(volume_norm)
     print("|" * int(volume_norm))
-    if volume_norm > 2:
+    if volume_norm > 3:
         data.append(volume_norm)
         recibiendo = True
     if recibiendo and volume_norm < 2:
