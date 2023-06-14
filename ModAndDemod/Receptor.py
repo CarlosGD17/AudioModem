@@ -43,10 +43,10 @@ for i in range(3, len(data), 10):
 print(f"\n---Recibido: {recibido}---")
 
 binary_string = ''.join(str(bit) for bit in recibido)
-decimal_value = int(binary_string, 2)
-letter = chr(decimal_value)
+binary_characters = [binary_string[i:i+8] for i in range(0, len(binary_string), 8)]
+word = ''.join(chr(int(binary_char, 2)) for binary_char in binary_characters)
 
-print(f"Recibido: {letter}")
+print(f"Recibido: {word}")
 
 plt.plot(data)
 plt.show()
