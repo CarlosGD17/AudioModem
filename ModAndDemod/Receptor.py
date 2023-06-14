@@ -36,8 +36,8 @@ data[:] = [i // 10 for i in data]
 indices = [index for index, item in enumerate(data) if item <= 10]
 
 limpio = []
-for i in range(len(indices)):
-    if indices[i + 1] - indices[i] != 1:
+for i in range(len(indices)-1):
+    if indices[i + 1] - indices[i] > 1:
         limpio.append(indices[i])
 
 print(limpio)
