@@ -33,7 +33,9 @@ d = p.codificar("hola", 0)
 print(len(d))
 """
 
-p.modular([1, 1, 0, 0, 1, 1, 0, 0])
+c = p.codificar("z", 0)
+p.modular(c)
+#p.modular([1, 1, 0, 0, 1, 1, 0, 0])
 #time.sleep(1)
 #p.modular([1, 1, 1, 1, 1, 1, 1, 1])
 """
