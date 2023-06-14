@@ -39,6 +39,7 @@ limpio = []
 for i in range(len(indices)-1):
     if indices[i + 1] - indices[i] > 1:
         limpio.append(indices[i])
+limpio.append(indices[-1])
 
 print(limpio)
 
