@@ -34,8 +34,7 @@ data[:] = [i // 10 for i in data]
 print(f"Grafica: {data[0::10]}")
 for i in range(0, len(data) - 10, 10):
     baudio = max(data[i:i + 10])
-    print(f"[{i} - {i+10}]")
-    print(f"max: {baudio}")
+    print(f"[{i} - {i+10}], max: {baudio}, promedio {sum(data[i:i+10])/10}")
     if 36 < baudio < 45:
         recibido.append(1)
     if 10 < baudio < 33:
