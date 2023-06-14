@@ -50,10 +50,14 @@ class Transmision:
     def __init__(self):
         # 4 baudios
         # bit/segundo = log_2_(4) = 2
-        self.b1 = Baudio(frequency=1117.0)
-        self.b2 = Baudio(frequency=2117.0)
-        self.b3 = Baudio(frequency=3117.0)
-        self.b4 = Baudio(frequency=4117.0)
+        #self.b1 = Baudio(frequency=1117.0)
+        self.b1 = Baudio(volume=0.1)
+        #self.b2 = Baudio(frequency=2117.0)
+        self.b2 = Baudio(volume=0.3)
+        #self.b3 = Baudio(frequency=3117.0)
+        self.b3 = Baudio(volume=0.6)
+        #self.b4 = Baudio(frequency=4117.0)
+        self.b4 = Baudio(volume=0.9)
 
     def modular(self, bits):
         print(f"transmitiendo: [{bits}]")
