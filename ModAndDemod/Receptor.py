@@ -13,17 +13,17 @@ def print_sound(indata, outdata, frames, time, status):
 
     volume_norm = volume_norm * 10
     print(volume_norm)
-    data.append(volume_norm)
-
-    # print("|" * int(volume_norm))
-    if 38 < volume_norm < 45:
-        print(f"\n\n---Recibido: 1---\n\n")
-        recibido.append(1)
-        #t.sleep(0.1)
-    if 15 < volume_norm < 20:
-        print(f"\n\n---Recibido: 0---\n\n")
-        recibido.append(0)
-        #t.sleep(0.1)
+    if volume_norm > 5:
+        data.append(volume_norm)
+        # print("|" * int(volume_norm))
+        if 38 < volume_norm < 45:
+            print(f"\n\n---Recibido: 1---\n\n")
+            recibido.append(1)
+            #t.sleep(0.1)
+        if 15 < volume_norm < 20:
+            print(f"\n\n---Recibido: 0---\n\n")
+            recibido.append(0)
+            #t.sleep(0.1)
 
 
 stream = sd.Stream(callback=print_sound, samplerate=44100)
