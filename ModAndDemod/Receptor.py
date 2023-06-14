@@ -32,14 +32,15 @@ stream.stop()
 data[:] = [i // 10 for i in data]
 
 print(f"Grafica: {data[0::10]}")
-for i in range(3, len(data), 10):
-    baudio = max(data[i:i + 6])
-    print(f"[{i} - {i+6}], max: {baudio}, promedio {sum(data[i:i+6])/6}")
+for i in range(4, len(data), 10):
+    baudio = max(data[i:i + 4])
+    print(f"[{i} - {i+4}], max: {baudio}, promedio {sum(data[i:i+4])/4}")
     if 36 < baudio < 45:
         recibido.append(1)
     if 10 < baudio < 33:
         recibido.append(0)
 
+print(f"bits: {len(recibido)}")
 print(f"\n---Recibido: {recibido}---")
 
 binary_string = ''.join(str(bit) for bit in recibido)
