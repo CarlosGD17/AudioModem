@@ -17,8 +17,9 @@ def print_sound(indata, outdata, frames, time, status):
     if volume_norm > 3:
         data.append(volume_norm)
         recibiendo = True
-    if recibiendo and volume_norm < 2:
-        stream.stop()
+    if recibiendo and volume_norm < 1.5:
+        plt.plot(data)
+        plt.show()
 
 
 stream = sd.Stream(callback=print_sound, samplerate=44100)
@@ -28,7 +29,7 @@ stream.start()
 #input("Press Enter to stop...\n")
 
 # Stop the audio stream and exit the program
-#stream.stop()
+stream.stop()
 
 print(f"\n---Recibido: {recibido}---")
 plt.plot(data)
