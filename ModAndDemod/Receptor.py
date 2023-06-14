@@ -28,6 +28,14 @@ input("Press Enter to stop...\n")
 # Stop the audio stream and exit the program
 stream.stop()
 
-print(f"\n---Recibido: {recibido}---")
 plt.plot(data)
 plt.show()
+
+for i in range(0, len(data) - 10, 10):
+    baudio = max(data[i:i+10])
+    if 38 < baudio < 45:
+        recibido.append(1)
+    if 13 < baudio < 23:
+        recibido.append(0)
+
+print(f"\n---Recibido: {recibido}---")
