@@ -51,19 +51,24 @@ class Transmision:
         # 4 baudios
         # bit/segundo = log_2_(4) = 2
         #self.b1 = Baudio(frequency=1117.0)
-        self.b1 = Baudio(volume=0.1)
+        self.b1 = Baudio(volume=0.4)
         #self.b2 = Baudio(frequency=2117.0)
-        self.b2 = Baudio(volume=0.3)
+        self.b2 = Baudio(volume=0.8)
         #self.b3 = Baudio(frequency=3117.0)
-        self.b3 = Baudio(volume=0.6)
+        #self.b3 = Baudio(volume=0.6)
         #self.b4 = Baudio(frequency=4117.0)
-        self.b4 = Baudio(volume=0.9)
+        #self.b4 = Baudio(volume=0.9)
 
     def modular(self, bits):
         print(f"transmitiendo: [{bits}]")
         data = bits
         # data = [random.choice([0, 1]) for _ in range(10)]
         for i in range(0, len(data), 2):
+            if data[i] == 0:
+                self.b1.transmit()
+            if data[i] == 1:
+                self.b2.transmit()
+            """
             if data[i] == 0 and data[i+1] == 0:
                 self.b1.transmit()
             elif data[i] == 0 and data[i+1] == 1:
@@ -72,6 +77,7 @@ class Transmision:
                 self.b3.transmit()
             elif data[i] == 1 and data[i+1] == 1:
                 self.b4.transmit()
+            """
 
     def codificar(self, msg, nombre):
         # mensaje
