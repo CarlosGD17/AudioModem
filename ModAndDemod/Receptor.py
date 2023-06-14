@@ -26,7 +26,7 @@ stream = sd.Stream(callback=print_sound, samplerate=44100)
 stream.start()
 
 # Wait for user input to stop the program
-#input("Press Enter to stop...\n")
+input("Press Enter to stop...\n")
 
 # Stop the audio stream and exit the program
 stream.stop()
