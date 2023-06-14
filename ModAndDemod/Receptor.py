@@ -8,8 +8,8 @@ def print_sound(indata, outdata, frames, time, status):
     # calcula la longitud del vector
     volume_norm = np.linalg.norm(indata)
 
-    print(volume_norm)
     volume_norm = volume_norm * 10
+    print(volume_norm)
 
     #print("|" * int(volume_norm))
     if 38 < volume_norm < 45:
