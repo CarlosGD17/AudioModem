@@ -31,10 +31,23 @@ stream.stop()
 
 data[:] = [i // 10 for i in data]
 
+# Encontrar los puntos mínimos
+
+indices = [index for index, item in enumerate(data) if item < 10]
+
+limpio = []
+for i in range(len(indices)-1):
+    if indices[i + 1] - indices[i] != 1:
+        limpio.append(indices[i])
+
+print(limpio)
+
 print(f"Grafica: {data[0::10]}")
-for i in range(4, len(data), 10):
-    baudio = max(data[i:i + 4])
-    print(f"[{i} - {i+4}], max: {baudio}, promedio {sum(data[i:i+4])/4}")
+for i in range(len(limpio) - 1):
+    inicio = limpio[i]
+    final = limpio[i + 1]
+    baudio = max(data[inicio:final])
+    print(f"[{inicio} - {final}], max: {baudio}, promedio {sum(data[inicio:final])/len(data[inicio:final])}")
     if 36 < baudio < 45:
         recibido.append(1)
     if 10 < baudio < 33:
@@ -48,17 +61,6 @@ binary_characters = [binary_string[i:i+8] for i in range(0, len(binary_string), 
 word = ''.join(chr(int(binary_char, 2)) for binary_char in binary_characters)
 
 print(f"Recibido: {word}")
-
-# Encontrar los puntos mínimos
-
-indices = [index for index, item in enumerate(data) if item < 10]
-
-limpio = []
-for i in range(len(indices)-1):
-    if indices[i + 1] - indices[i] != 1:
-        limpio.append(indices[i])
-
-print(limpio)
 
 
 
