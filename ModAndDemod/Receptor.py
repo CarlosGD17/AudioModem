@@ -50,8 +50,9 @@ word = ''.join(chr(int(binary_char, 2)) for binary_char in binary_characters)
 print(f"Recibido: {word}")
 
 # Encontrar los puntos mínimos
-min_points = np.where(data <= [10])
-print(min_points)
+
+indices = [index for index, item in enumerate(recibido) if item < 10]
+print(indices)
 
 
 
