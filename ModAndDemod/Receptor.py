@@ -33,7 +33,7 @@ data[:] = [i // 10 for i in data]
 
 # Encontrar los puntos mínimos
 
-indices = [index for index, item in enumerate(data) if item <= 10]
+indices = [index for index, item in enumerate(data) if item <= 25]
 
 limpio = []
 for i in range(len(indices)-1):
@@ -50,7 +50,7 @@ for i in range(len(limpio) - 1):
     print(f"[{inicio} - {final}], max: {baudio}, promedio {sum(data[inicio:final])/len(data[inicio:final])}")
     if 36 < baudio < 45:
         recibido.append(1)
-    if 10 < baudio < 33:
+    if 25 < baudio < 33:
         recibido.append(0)
 
 print(f"bits: {len(recibido)}")
