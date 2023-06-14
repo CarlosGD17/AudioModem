@@ -2,6 +2,10 @@ import tkinter as tk
 from tkinter import filedialog
 from tkinter import messagebox
 from tkinter import ttk
+from ModAndDemod import Transmisor
+
+p = Transmisor.Transmision()
+
 
 def adjuntar_archivo():
     global archivo_adjunto
@@ -16,6 +20,7 @@ def adjuntar_archivo():
         print("Archivo adjuntado:", archivo)
         boton_enviar.config(state=tk.NORMAL)  # Habilitar el botón de enviar después de adjuntar el archivo
 
+
 def enviar_mensaje():
     global archivo_adjunto
     mensaje = entrada_texto.get("1.0", "end-1c")
@@ -27,7 +32,9 @@ def enviar_mensaje():
     area_chat.config(state=tk.NORMAL)
     if mensaje:
         area_chat.insert(tk.END, "Yo: " + mensaje + "\n")
-    if archivo_adjunto:
+        c = p.codificar(mensaje, 0)
+        p.modular(c)
+    elif archivo_adjunto:
         nombre_archivo = archivo_adjunto.split("/")[-1]
         area_chat.insert(tk.END, "Adjunto: " + nombre_archivo + "\n")
         area_chat.insert(tk.END, "Archivo enviado\n")  # Mostrar "Archivo enviado" en el área del chat
@@ -35,6 +42,7 @@ def enviar_mensaje():
     area_chat.config(state=tk.DISABLED)
 
     entrada_texto.delete("1.0", tk.END)
+
 
 ventana = tk.Tk()
 ventana.title("Chat")
@@ -71,7 +79,8 @@ entrada_texto.pack(fill=tk.X, padx=10, pady=10)
 
 # Botón de adjuntar archivo
 imagen_adjuntar = tk.PhotoImage(file="clip_icon.png").subsample(10, 10)  # Redimensionar a 10x10 píxeles
-boton_adjuntar = tk.Button(ventana, image=imagen_adjuntar, command=adjuntar_archivo, borderwidth=0, highlightthickness=0)
+boton_adjuntar = tk.Button(ventana, image=imagen_adjuntar, command=adjuntar_archivo, borderwidth=0,
+                           highlightthickness=0)
 boton_adjuntar.pack(side=tk.LEFT, padx=10)
 
 # Botón de enviar mensaje con ícono
