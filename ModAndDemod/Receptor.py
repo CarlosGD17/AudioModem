@@ -33,7 +33,7 @@ data[:] = [i // 10 for i in data]
 
 # Encontrar los puntos mínimos
 
-indices = [index for index, item in enumerate(data) if item < 10]
+indices = [index for index, item in enumerate(data) if item <= 10]
 
 limpio = []
 for i in range(len(indices)-1):
