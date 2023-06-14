@@ -29,9 +29,11 @@ input("Press Enter to stop...\n")
 # Stop the audio stream and exit the program
 stream.stop()
 
+data[:] = [i / 10 for i in data]
+
 print(f"Grafica: {data[0::10]}")
 for i in range(0, len(data) - 10, 10):
-    baudio = max(data[i:i + 10]) / 10
+    baudio = max(data[i:i + 10])
     print(f"max: {baudio}")
     if 38 < baudio < 45:
         recibido.append(1)
