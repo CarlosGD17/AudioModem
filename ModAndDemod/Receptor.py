@@ -32,7 +32,7 @@ plt.plot(data)
 plt.show()
 
 for i in range(0, len(data) - 10, 10):
-    baudio = max(data[i:i+10])
+    baudio = max(data[i:i+10]) / 10
     if 38 < baudio < 45:
         recibido.append(1)
     if 13 < baudio < 23:
