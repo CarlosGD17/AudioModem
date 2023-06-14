@@ -52,7 +52,13 @@ print(f"Recibido: {word}")
 # Encontrar los puntos mínimos
 
 indices = [index for index, item in enumerate(data) if item < 10]
-print(indices)
+
+limpio = []
+for i in range(len(indices)-1):
+    if indices[i + 1] - indices[i] != 1:
+        limpio.append(indices[i])
+
+print(limpio)
 
 
 
