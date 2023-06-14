@@ -1,3 +1,5 @@
+import time
+
 import numpy as np
 
 import Transmisor
@@ -26,12 +28,14 @@ p.modular(d)
 while True:
     volume = int(input("Digite el volumen (1, 3, 6, 9): "))
     p.calibrar(volume)
-"""
 
 d = p.codificar("hola", 0)
 print(len(d))
+"""
 
-p.modular(d)
+p.modular([1, 1, 0, 0, 1, 1, 0, 0])
+#time.sleep(1)
+#p.modular([1, 1, 1, 1, 1, 1, 1, 1])
 """
 with open("D:\Carlos\Desktop\goku_idle.jpg", "rb") as f:
     print("read:", f.read())
