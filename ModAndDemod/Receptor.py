@@ -10,7 +10,7 @@ recibiendo = False
 def print_sound(indata, outdata, frames, time, status):
     # calcula la longitud del vector
     volume_norm = np.linalg.norm(indata)
-
+    global recibiendo
     volume_norm = volume_norm * 10
     print(volume_norm)
     print("|" * int(volume_norm))
@@ -19,7 +19,6 @@ def print_sound(indata, outdata, frames, time, status):
         recibiendo = True
     if recibiendo and volume_norm < 2:
         stream.stop()
-
 
 
 stream = sd.Stream(callback=print_sound, samplerate=44100)
