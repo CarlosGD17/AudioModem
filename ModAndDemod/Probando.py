@@ -28,10 +28,8 @@ while True:
     p.calibrar(volume)
 """
 
-d = p.codificar("adios", 0)
+d = p.codificar("hola", 0)
 print(len(d))
-
-
 
 p.modular(d)
 """
