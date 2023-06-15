@@ -5,7 +5,6 @@ import numpy as np
 import Transmisor
 from matplotlib import pyplot as plt
 
-
 p = Transmisor.Transmision()
 """
 d = [0, 0, 0, 0, 0, 0, 0, 0]
@@ -32,7 +31,7 @@ while True:
 d = p.codificar("hola", 0)
 print(len(d))
 """
-c = p.codificar("hola", 0)
+c = p.codificar("h", 0)
 p.modular(c)
 #p.modular([1, 1, 0, 0, 1, 1, 0, 0])
 #time.sleep(1)

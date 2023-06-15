@@ -51,7 +51,7 @@ for i in range(len(limpio) - 1):
     print(f"[{inicio} - {final}], max: {baudio}, promedio {sum(data[inicio:final])/len(data[inicio:final])}")
     if 36 < baudio < 45:
         recibido.append(1)
-    if 25 < baudio < 33:
+    if 13 < baudio < 33:
         recibido.append(0)
 
 print(f"bits: {len(recibido)}")
@@ -63,11 +63,5 @@ word = ''.join(chr(int(binary_char, 2)) for binary_char in binary_characters)
 
 print(f"Recibido: {word}")
 
-
-
 plt.plot(data)
 plt.show()
-
-
-
-
