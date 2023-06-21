@@ -31,15 +31,26 @@ stream.stop()
 
 data[:] = [i // 10 for i in data]
 
-# Encontrar los puntos mínimos
+# Encontrar los puntos máximos
 
 indices = [index for index, item in enumerate(data) if item <= 20]
-
+"""
 limpio = []
 for i in range(len(indices)-1):
     if indices[i + 1] - indices[i] > 1:
         limpio.append(indices[i])
 limpio.append(indices[-1])
+
+print(limpio)
+"""
+limpio = []
+for i in range(len(data)-5):
+    x1 = i
+    x2 = i+5
+    y1 = data[x1]
+    y2 = data [x2]
+
+    m = (y2-y1)/(x2-x1)
 
 print(limpio)
 
@@ -49,10 +60,11 @@ for i in range(len(limpio) - 1):
     final = limpio[i + 1]
     baudio = max(data[inicio:final])
     print(f"[{inicio} - {final}], max: {baudio}, promedio {sum(data[inicio:final])/len(data[inicio:final])}")
-    if 36 < baudio < 45:
-        recibido.append(1)
-    if 13 < baudio < 33:
-        recibido.append(0)
+    if -0.5 < m < 0.5:
+        if 36 < baudio < 45:
+            recibido.append(1)
+        if 13 < baudio < 33:
+            recibido.append(0)
 
 print(f"bits: {len(recibido)}")
 print(f"\n---Recibido: {recibido}---")

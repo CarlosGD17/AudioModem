@@ -40,7 +40,7 @@ p.modular(c)
 with open("D:\Carlos\Desktop\goku_idle.jpg", "rb") as f:
     print("read:", f.read())
     archivo = p.codificar(f, extension=1)
-    print(len(archivo))
+    print(len(archivo)) 
     p.modular(archivo)
 
 
